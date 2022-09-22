@@ -1,50 +1,47 @@
 
-// import http from 'http';
-// import {template} from './utils.js';
-// import path from 'path';
-// import { fileURLToPath } from 'url';
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-// import {data} from './data.js';
-// import * as fs from 'fs';
+const http=require('http');
+const url=require('url');
 const db=require('./db');
 require("dotenv").config();
 const database=new db(process.env.MONGO_URL);
 database.conn();
 // database.createDatabase('teacher');
 // database.insertData({"Name":"Sayem","Roll":25})
-database.deleteData('632c6615ef9324b623442205');
-// async function  CreateCollection(MyMongoClient){
-//    await MyMongoClient.createCollection('teachers',function(err,res){
-//         if(err){
-//             console.log(err);
-//         }else{
-//             console.log(res);
-//         }
-//     })
-// }
-// http.createServer((req,res)=>{
-//     if(req.url==='/'){
-//         res.write(template("This is home page"));
-//         res.end()
-//     }
-//     else if(req.url==='/about'){
-//         res.write(template('This is our About page.'));
-//         res.end();
-//     }else if(req.url==='/contact'){
-//         res.write(template("This is our Contact page."));
-//         res.end();
-//     }else{
-//         const readStream=fs.createReadStream(`${__dirname}/data.js`,'utf8');
-//         // readStream.pipe(res);
-//         let data="";
-//         readStream.on('data',(chunk)=>{
-//             data+=chunk;
-//             res.write(template(data))
+// database.deleteData('632c6615ef9324b623442205');
+// (async()=>{
+//     const data= await database.getData();
+//     console.log(data)
+// })()
+// database.getData()
+// database.updateData('632c67721e061ade1601a95a',{"Name":"Sujan mridha","Roll":31});
+// console.log(typeof(database.getData()))
+// console.log(database.getData().constructor.name === 'AsyncFunction')
 
-//         })
+// database.getData()
 
-//     }
+http.createServer((req,res)=>{
+    if(req.url==='/'){
+        database.getData();
+        res.end();
+    }
+    else if(req.url==='/update' && req.method==="POST"){
+    //    database.updateData(url.parse(req.url, true).query.id,req.data)
+    const data={"Name":"Sujan mridha","Roll":31}
+    const id='632c67721e061ade1601a95a';
+    database.updateData(id,data);
+    res.end();
+    }else if(req.url==='/delete'&& req.method==="POST"){
+        // const id=url.parse(req.url, true).query.id
+        const id='632c67721e061ade1601a95a';
+       database.deleteData(id);
+       res.end();
+    }else if(req.url="/insert" && req.method==="POST"){
 
-// }).listen(4040);
-// console.log('👍Server running : http://localhost:4040/  ');
+        // const data=req.body;
+        const data={"Name":"Sayem","Roll":25};
+        database.insertData(data);
+        res.end();
+    }
+
+}).listen(4040);
+console.log('👍Server running : http://localhost:4040/  ');

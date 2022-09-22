@@ -24,8 +24,8 @@ class db{
             
         (async ()=>{
             await this.client.connect();
-            const insert=await this.client.db().collection('student');
-            const {insertedId}=await insert.insertOne(data);
+            const collection=await this.client.db().collection('student');
+            await collection.insertOne(data);
             await this.client.close();
 
         })();
@@ -41,8 +41,8 @@ class db{
             
             (async ()=>{
                 await this.client.connect();
-                const delet=await this.client.db().collection('student');
-                await delet.deleteOne({"_id":ObjectId(id)})
+                const collection=await this.client.db().collection('student');
+                await collection.deleteOne({"_id":ObjectId(id)})
                 await this.client.close();
                 // console.log(deletedId);
     
@@ -54,26 +54,48 @@ class db{
             }
 
     }
-    getData(){
+    async getData(){
+        try {
+           
+            
+           (async ()=>{
+                await this.client.connect();
+                const collection=await this.client.db().collection('student');
+               const dataset=await collection.find().toArray();
+            //    return dataset;
+               console.log(dataset)
+            //    return(JSON.stringify(dataset))
+            //    return dataset
+                await this.client.close();
+                // console.log(deletedId);
+    
+            })();
+            // return(JSON.stringify(data));
+            // return data;
+            
+            } catch (error) {
+                console.log('Error: ', e.message);
+                
+            }
+
+
+    }
+    updateData(id,data){
         try {
             
             (async ()=>{
                 await this.client.connect();
-                const delet=await this.client.db().collection('student');
-                await delet.deleteOne({"_id":ObjectId(id)})
+                const collection=await this.client.db().collection('student');
+                await collection.updateOne({"_id":ObjectId(id)},{$set:data});
                 await this.client.close();
-                // console.log(deletedId);
     
             })();
+            // console.log(id,data)
             
             } catch (error) {
                 console.log('Error: ', e.message);
                 
             }
-
-
-    }
-    updateData(){
 
     }
 }
