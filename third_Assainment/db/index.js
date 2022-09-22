@@ -37,21 +37,21 @@ class db{
 
     }
     deleteData(id){
-        // try {
+        try {
             
-        //     (async ()=>{
-        //         await this.client.connect();
-        //         const delet=await this.client.db().collection('student');
-        //         await delet.deleteOne({"_id":ObjectId(id)})
-        //         await this.client.close();
-        //         // console.log(deletedId);
+            (async ()=>{
+                await this.client.connect();
+                const delet=await this.client.db().collection('student');
+                await delet.deleteOne({"_id":ObjectId(id)})
+                await this.client.close();
+                // console.log(deletedId);
     
-        //     })();
+            })();
             
-        //     } catch (error) {
-        //         console.log('Error: ', e.message);
+            } catch (error) {
+                console.log('Error: ', e.message);
                 
-        //     }
+            }
 
     }
     getData(){
