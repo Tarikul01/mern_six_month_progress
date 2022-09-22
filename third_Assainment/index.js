@@ -13,7 +13,7 @@ const database=new db(process.env.MONGO_URL);
 database.conn();
 // database.createDatabase('teacher');
 // database.insertData({"Name":"Sayem","Roll":25})
-database.deleteData(632c6615ef9324b623442205);
+database.deleteData('632c6615ef9324b623442205');
 // async function  CreateCollection(MyMongoClient){
 //    await MyMongoClient.createCollection('teachers',function(err,res){
 //         if(err){

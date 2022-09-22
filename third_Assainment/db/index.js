@@ -1,3 +1,5 @@
+const { ObjectId } = require('mongodb');
+
 class db{
 
  constructor(URL){
@@ -35,13 +37,32 @@ class db{
 
     }
     deleteData(id){
+        // try {
+            
+        //     (async ()=>{
+        //         await this.client.connect();
+        //         const delet=await this.client.db().collection('student');
+        //         await delet.deleteOne({"_id":ObjectId(id)})
+        //         await this.client.close();
+        //         // console.log(deletedId);
+    
+        //     })();
+            
+        //     } catch (error) {
+        //         console.log('Error: ', e.message);
+                
+        //     }
+
+    }
+    getData(){
         try {
             
             (async ()=>{
                 await this.client.connect();
                 const delet=await this.client.db().collection('student');
-                await delet.deleteOne({_id:id})
+                await delet.deleteOne({"_id":ObjectId(id)})
                 await this.client.close();
+                // console.log(deletedId);
     
             })();
             
@@ -50,8 +71,6 @@ class db{
                 
             }
 
-    }
-    getData(){
 
     }
     updateData(){
