@@ -1,0 +1,1 @@
+db.student.update({_id:"21"},{$set:{"Name":"Tarikul","Roll":"21","age":"22"}})

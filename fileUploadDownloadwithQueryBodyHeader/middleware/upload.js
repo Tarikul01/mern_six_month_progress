@@ -25,7 +25,7 @@ const upload = multer({
 		}
         // console.log(path.extname(file.originalname));
 	},
-}).array("image", 4);
+}).array("image", 3);
 
 const uploadImg=(req,res,next)=>{
     upload(req, res, function (err) {

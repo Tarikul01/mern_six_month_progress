@@ -1,0 +1,7 @@
+//Create database connection
+
+let uri='mongodb://127.0.0.1:27017/blogs'
+
+let options={user:" ",pass:" "}
+
+mongoose.connect(uri,options,(err)=>{ console.log("Connected mongoDB...")})

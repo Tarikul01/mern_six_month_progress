@@ -1,0 +1,3 @@
+use Schools
+
+db.Teachers.find()  //find all data

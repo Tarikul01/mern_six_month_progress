@@ -1,0 +1,3 @@
+use Schools  //Switch schools database
+
+db.dropDatabase()  //Delete schools database

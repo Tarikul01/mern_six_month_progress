@@ -1,0 +1,8 @@
+String:   type:String,
+Number: type:Number,
+Date: type:Date,
+Boolean: type:Boolean
+Mixed: type:[],
+ObjectId: type:{}
+Decimal128
+Map

@@ -1,0 +1,3 @@
+use Schools
+
+db.teachers.findOne({"name":"Tarikul"})  //Find single data 

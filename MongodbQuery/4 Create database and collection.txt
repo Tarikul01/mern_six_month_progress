@@ -1,0 +1,3 @@
+use Schools //Create School database
+
+db.students.insert({"name":"Tarik","Roll":21}); //Create students collection and insert a data

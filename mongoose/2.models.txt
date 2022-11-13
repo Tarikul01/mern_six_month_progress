@@ -1,0 +1,11 @@
+const mongoose=require("mongoose")
+
+const DataSchema=mongoose.Schema({
+"Name":String,
+"Roll":String,
+"Remark":String
+
+})
+
+const StudentsModel=mongoose.model("Student",DataSchema);
+model.exports=StudentModel;

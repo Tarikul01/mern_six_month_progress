@@ -1,0 +1,22 @@
+db.students.find({query},{projection});
+
+
+db.students.find({},{name:1,Address:1,_id:0}).pretty();
+
+//Equals
+db.students.find({Roll:{$eq:10}},{name:1,Address:1,_id:0}).pretty();
+
+//Lessthan
+db.students.find({Roll:{$lt:10}},{name:1,Address:1,_id:0}).pretty();
+
+//Lessthan equal
+db.students.find({Roll:{$lte:10}},{name:1,Address:1,_id:0}).pretty();
+
+//greater than
+db.students.find({Roll:{$gt:10}},{name:1,Address:1,_id:0}).pretty();
+
+//greater than equal
+db.students.find({Roll:{$gte:10}},{name:1,Address:1,_id:0}).pretty();
+
+//Not equal
+db.students.find({Roll:{$ne:10}},{name:1,Address:1,_id:0}).pretty();

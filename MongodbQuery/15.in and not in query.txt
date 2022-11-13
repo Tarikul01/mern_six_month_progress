@@ -1,0 +1,14 @@
+In work for OR operator just like:
+
+value  100 or 200 or 300 or 400
+
+and not in means not 100 or not 200 or not 300
+
+
+//In operator
+db.students.find({Roll:{$in:["100","200","300"]}},{name:1,Address:1,_id:0}).pretty();
+
+
+//Not in 
+
+db.students.find({Roll:{$nin:["100","200","300"]}},{name:1,Address:1,_id:0}).pretty();

@@ -1,0 +1,11 @@
+const StudentModel=require("../models/StudentsModel");
+
+const data={
+"name":"TinTin",
+"Class":"10",
+"Roll":"2"
+}
+
+StudentModel.create(data,(err)=>{
+ res.status(200).josn({"msg":"OK"!})
+})

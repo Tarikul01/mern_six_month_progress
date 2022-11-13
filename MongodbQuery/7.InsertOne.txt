@@ -1,0 +1,3 @@
+use Schools
+
+db.teacher.insertOne({"name":"Tarikul","Roll":"13"});

@@ -1,0 +1,5 @@
+use Schools  //Switch Schools database
+
+db.createCollection("Teacher")   //Create  Teacher collection in Schools database
+
+db.Teacher.drop()    //Drop Teacher database

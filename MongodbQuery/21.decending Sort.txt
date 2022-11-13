@@ -1,0 +1,5 @@
+db.students.find({},{title:1}).sort({"title":-1}).limit(20)
+
+
+
+//Sorting the value decending order use title property

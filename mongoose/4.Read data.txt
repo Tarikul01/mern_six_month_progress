@@ -1,0 +1,11 @@
+const StudentModel=require("../models/StudentsModel");
+
+const projection="Name Roll Class Remarks";
+
+StudentModel.find(query,projection,(err,data)=>{
+
+if(!err){
+res.status(200).josn({"msg":data})
+}
+ 
+})

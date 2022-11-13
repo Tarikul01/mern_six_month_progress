@@ -1,0 +1,61 @@
+//type Casting validation:
+Class:String
+
+//Required Validation:
+Name:{type:String,required:true}
+
+//Unique validation:
+Name:{type:String,unique:true}
+
+//Min-max Number validation:
+Roll:{type:Number,min:6,max:12}
+
+//Custom Erro message:
+eggs:{
+	 type:Number,
+     	 min:[6,"Too few eggs, but got {VALUE}"],
+     	 max:[12,"Too more eggs"]}
+
+
+//Boolean Check:
+bacon:{
+	type:Number,
+	required:[true,"Why no bacon?"]
+	}
+
+//Return functions:
+drink:{
+	type:String,
+	enum:["coffe","Tea"],
+	required:function(){
+		return this.bacon>3;
+}
+}
+
+
+ eggs: {
+    type: Number,
+    min: [6, 'Must be at least 6, got {VALUE}'],
+    max: 12
+  },
+  drink: {
+    type: String,
+    enum: {
+      values: ['Coffee', 'Tea'],
+      message: '{VALUE} is not supported'
+    }
+  }
+
+
+
+//Custom validator
+  phone: {
+    type: String,
+    validate: {
+      validator: function(v) {
+        return /\d{3}-\d{3}-\d{4}/.test(v);
+      },
+      message: props => `${props.value} is not a valid phone number!`
+    },
+    required: [true, 'User phone number required']
+  }

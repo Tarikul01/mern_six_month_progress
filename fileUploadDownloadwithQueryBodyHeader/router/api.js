@@ -13,6 +13,9 @@ const {uploadImg}=require("../middleware/upload");
 router.post("/query",getData);
 router.post("/upload",uploadImg,uploadFile);
 router.get("/download",downloadFile);
+router.get("/check",(req,res)=>{
+
+})
 // router.post("/upload",uploadFile);
 
 

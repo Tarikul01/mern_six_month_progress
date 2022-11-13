@@ -1,0 +1,14 @@
+const StudentModel=require("../models/StudentsModel");
+
+const projection="Name Roll Class Remarks";
+
+const query={_id:req.params.id};
+const updateData=req.body;
+
+StudentModel.updateOne(query,updateData,(err,data)=>{
+
+if(!err){
+res.status(200).josn({"msg":data})
+}
+ 
+})

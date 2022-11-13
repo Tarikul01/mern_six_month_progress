@@ -1,0 +1,1 @@
+db.students.find({$and:[{Roll:{$eq:"100"}},{Name:{$eq:"Tarikul"}}]},{name:1,Address:1,_id:0}).pretty();
